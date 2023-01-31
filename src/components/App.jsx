@@ -4,13 +4,9 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { ContactForm } from './ContactForm/ContactForm';
 
-export const App = () => {
-  return <Phonebook />;
-};
-
-class Phonebook extends Component {
+export class App extends Component {
   state = {
-    contacts: [ ],
+    contacts: [],
     filter: '',
     name: '',
     number: '',
@@ -18,7 +14,7 @@ class Phonebook extends Component {
 
   handleChange = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });    
+    this.setState({ [name]: value });
   };
 
   handleSubmit = e => {
@@ -37,12 +33,13 @@ class Phonebook extends Component {
   };
 
   handleClick = e => {
-    const index = e.target.getAttribute('index');    
-    this.state.contacts.splice(
-      this.state.contacts.findIndex(contact => contact.id === index),
+    const index = e.target.getAttribute('index');
+    const workState = [...this.state.contacts];
+    workState.splice(
+      workState.findIndex(contact => contact.id === index),
       1
     );
-    this.setState({ contacts: this.state.contacts });
+    this.setState({ contacts: workState });
   };
 
   render() {
@@ -61,7 +58,7 @@ class Phonebook extends Component {
           contacts={contacts}
           filter={this.state.filter}
           onClick={this.handleClick}
-        />        
+        />
       </>
     );
   }
