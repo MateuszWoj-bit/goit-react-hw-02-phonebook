@@ -32,14 +32,11 @@ export class App extends Component {
     e.target.reset();
   };
 
-  handleClick = e => {
-    const index = e.target.getAttribute('index');
-    const workState = [...this.state.contacts];
-    workState.splice(
-      workState.findIndex(contact => contact.id === index),
-      1
+  handleDelete = id => {
+    const filteredContacts = this.state.contacts.filter(
+      contact => contact.id !== id
     );
-    this.setState({ contacts: workState });
+    this.setState({ contacts: filteredContacts });
   };
 
   render() {
@@ -57,7 +54,7 @@ export class App extends Component {
         <ContactList
           contacts={contacts}
           filter={this.state.filter}
-          onClick={this.handleClick}
+          onClick={this.handleDelete}
         />
       </>
     );
