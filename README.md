@@ -1,6 +1,6 @@
 # Project Summary 📚
 
-- **Name:** HW-01-Components
+- **Name:** HW-02-Phonebook
 - **Version:** 0.1.0
 - **Private:** Yes
 - 🏠 **Homepage:** [GoIT-React-HW-02-Phonebook](https://mateuszwoj-bit.github.io/goit-react-hw-02-phonebook/)
